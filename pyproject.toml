@@ -1,0 +1,28 @@
+[project]
+name = "pytorch-cuda-env"
+version = "0.1.0"
+description = "PyTorch with CUDA support on Windows"
+readme = "README.md"
+requires-python = ">=3.13,<3.14"
+dependencies = [
+    "accelerate>=1.15.0",
+    "ipykernel",
+    "pandas>=3.0.6",
+    "torch==2.14.0+cu132",
+    "torchvision==0.29.0+cu132",
+    "tqdm>=4.66.5",
+    "transformers>=5.18.0",
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu132"
+url = "https://download.pytorch.org/whl/cu132"
+explicit = true
+
+[[tool.uv.index]]
+name = "pypi"
+url = "https://pypi.org/simple"
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu132" }
+torchvision = { index = "pytorch-cu132" }
